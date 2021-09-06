@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visualization</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .orbit {
+            border: 2px solid #000;
+            border-radius: 50%;
+            position: absolute;
+            box-sizing: border-box;
+        }
+
+        .o-2 {
+            height: 175px;
+            width: 175px;
+            animation: 1s linear revolve135 infinite;
+            animation-delay: 0.25s;
+
+        }
+
+        .o-1 {
+            height: 150px;
+            width: 150px;
+            margin-top: 12.5px;
+            margin-left: 12.5px;
+            animation: 1s linear revolve45 infinite;
+            animation-delay: 0.50s;
+        }
+
+        .o1 {
+            height: 125px;
+            width: 125px;
+            margin-left: 25px;
+            margin-top: 25px;
+            animation-delay: 0.75s;
+            animation: 1s linear revolveY infinite;
+        }
+
+        .o2 {
+            height: 100px;
+            width: 100px;
+            margin-left: 37.5px;
+            margin-top: 37.5px;
+            animation-delay: 1s;
+            animation: 1s linear revolveX infinite;
+        }
+
+        .core {
+            height: 75px;
+            width: 75px;
+            margin-left: 50px;
+            margin-top: 50px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+            line-height: 70px;
+            animation: flash 0.1s linear infinite;
+            animation-delay: 0.05s;
+
+        }
+
+        .container {
+            width: 175px;
+            position: absolute;
+            left: 50%;
+            top: 25%;
+            transform: translate(-50%, 0%)
+        }
+
+        @keyframes revolveX {
+            100% {
+                transform: rotate3d(1, 0, 0, 180deg)
+            }
+        }
+
+        @keyframes revolveY {
+            100% {
+                transform: rotate3d(0, 1, 0, 180deg)
+            }
+        }
+
+        @keyframes revolve45 {
+            100% {
+                transform: rotate3d(1, 1, 0, 180deg)
+            }
+        }
+
+        @keyframes revolve135 {
+            100% {
+                transform: rotate3d(1, -1, 0, 180deg)
+            }
+        }
+
+        @keyframes flash {
+            0% {
+                background: red
+            }
+
+            100% {
+                background: green
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="orbit o-2"></div>
+        <div class="orbit o-1"></div>
+        <div class="orbit o1">
+        </div>
+        <div class="orbit core">Core</div>
+        <div class="orbit o2"></div>
+    </div>
+</body>
+
+</html>

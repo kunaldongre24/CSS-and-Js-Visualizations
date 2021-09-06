@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>visualization</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+        }
+
+        .box {
+            height: 20px;
+            width: 20px;
+            border-top: 0;
+            border-left: 0;
+            transition: 1s ease;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+</body>
+<script>
+    var boxes = "";
+    for (var i = 0; i <= 2600; i++) {
+        boxes = boxes.concat(`<div class='box' id='b${i}'></div>`)
+    }
+    setInterval(() => {
+        const pre = [];
+        const post = [];
+        for (var i = 0; i <= 2600; i++) {
+            pre.push(parseInt(Math.random() * 2601));
+            post.push(parseInt(Math.random() * 2601));
+        }
+        for (var i = 0; i <= 2600; i++) {
+            document.getElementById(`b${pre[i]}`).style.background = "#000";
+            document.getElementById(`b${post[i]}`).style.background = "#fff";
+        }
+
+    }, 100);
+    document.getElementById("container").innerHTML = boxes;
+</script>
+
+</html>

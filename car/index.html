@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="background"></div>
+    <div id="speedometer">
+        <div class="graph">
+            <div class="arrow" id="arrow"></div>
+            <div class="support"></div>
+        </div>
+        <div id="rating">0</div>
+        MPH
+    </div>
+    <div class="car">
+        <div class="head"></div>
+        <div class="front"></div>
+        <div class="slant-back">
+        </div>
+        <div class="space1"></div>
+        <div class="space2"></div>
+        <div class="space3"></div>
+        <div class="slant-front"></div>
+        <div class="car-body">
+            <div class="cover">
+                <div class="st-back"></div>
+                <div class="back"></div>
+            </div>
+
+            <div class="wheel-gap wg1">
+                <div class="wheel w1" id="w1">
+                    <div class="rim">
+                        <div class="wc"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="wheel-gap wg2">
+                <div class="wheel w2" id="w2">
+                    <div class="rim">
+                        <div class="wc"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="head-light">
+                <div class="light l1"></div>
+                <div class="light l2"></div>
+            </div>
+            <div class="car-front">
+            </div>
+        </div>
+    </div>
+    <div class="sl">
+
+        <div class="pole">
+            <div class="banner">Have a great day.</div>
+        </div>
+    </div>
+    <div class="road"></div>
+</body>
+<script>
+
+    setInterval(() => {
+        const speed = parseInt(document.getElementById("rating").innerHTML);
+        if (speed < 200) {
+            const prevSpeed = parseInt(document.getElementById("rating").innerHTML) + 1;
+            document.getElementById("rating").innerHTML++;
+            if (prevSpeed === 0) {
+                document.getElementById("w1").style.animationDuration = `0s`;
+                document.getElementById("w2").style.animationDuration = `0s`;
+            }
+
+            document.getElementById("w1").style.animationDuration = `${0.5 / prevSpeed}s`;
+            document.getElementById("w2").style.animationDuration = `${0.5 / prevSpeed}s`;
+            const rotate = prevSpeed / 200 * 180;
+            const angle = 45 + rotate;
+            document.getElementById("arrow").style.transform = `rotate(${angle}deg)`
+        }
+    }, 500);
+</script>
+
+</html>
+
+</html>
